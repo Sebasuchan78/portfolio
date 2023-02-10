@@ -1,662 +1,330 @@
-* {
-    padding: 0;
-    margin: 0;
-  }
-  
-  body {
-    font-family: "Fauna One", serif;
-    font-size: 20px;
-  }
-  
-  li {
-    list-style: none;
-  }
-  
-  a {
-    color: white;
-  }
-  
-  a:hover,
-  a:focus {
-    color: white;
-    text-decoration: none;
-  }
-  
-  h1 {
-    color: white;
-    text-align: center;
-    margin-top: 4%;
-    font-size: 412.5%;
-  }
-  
-  h1 > small {
+/*fonts*/
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+
+/*global*/
+.navbar-default .navbar-nav > .active > a {
+    background-color: #ccc;
+}
+.navbar-default .navbar-nav > li:hover> a, .navbar-default .navbar-nav > .active:hover > a {
+    background-color: #ffb424;
+}
+.navbar-default .social-list > li:hover> a {
+    color: #ffb424;
+    background: none;
+}
+h2 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.7rem;
+}
+/*global end*/
+
+/*header navbar*/
+nav.navbar {
+    background: #fff;
+    font-family: 'Lato', serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.4rem;
+}
+.scroll-down {
+    margin-top: 3%;
+}
+
+/*social list*/
+.social-list {
+    margin: 7px 25px;
+}
+.social-list li {
+    margin: 0 6px;
+}
+.social-list li a {
+    border: 1px solid black;
+    transform: rotate(45deg);
+    padding: 2px 4px;
     display: block;
-    color: white;
-  }
-  
-  h2 {
-    font-size: 245%;
-    margin-top: 140px;
-  }
-  
-  h2:after {
-    display: block;
-    margin: 42px 0;
-    content: "";
-  }
-  
-  h3 {
+    width: 33px;
+    height: 33px;
+}
+.social-list li:hover i {
+    color: #ffb424;
+}
+.fa-linkedin{
+    padding-left: 1px;
+}
+.fa-facebook{
+    padding: 3px 0 0 3px;
+}
+.social-list li i {
+    transform: rotate(-45deg);
+    vertical-align: baseline;
+}
+/*social list end*/
+
+/*banner*/
+header .banner {
+    background: url("http://i1378.photobucket.com/albums/ah89/andreykokhanevich/portfolio%20page/header1-background_zpsdlk7p04z.jpg") 70% no-repeat;
+    background-position: top;
+    background-size: 100%;
+    height: 55%;
+    position: relative;
+    z-index: -10;
+}
+.banner-content {
+    color: #fff;
+    font-family: "Lato", serif;
+    text-align: right;
+    text-transform: uppercase;
+    margin-top: 17%;
+    letter-spacing: 0.4rem;
+}
+.banner-content h1 {
+    font-size: 5rem;
     font-weight: bold;
-  }
-  
-  h4 {
-    font-size: 92%;
-  }
-  
-  h6 {
-    color: #f0f0f0;
-  }
-  
-  h1 .logo {
-    font-size: 230%;
-    font-family: "Brush Script MT", cursive;
-    width: 200px;
-    margin-left: -20px;
-  }
-  
-  /* ELEMENTS */
-  .noir {
-    display: block;
-    background-color: black;
-    padding: 18px;
-    border: 3px solid white;
-  }
-  
-  .vertical-list li {
-    float: left;
-  }
-  
-  .blue-border {
-    border: 2px solid #114190;
-  }
-  
-  .magenta-border {
-    border: 2px solid #e11a61;
-  }
-  
-  .purple-border {
-    border: 2px solid #9d1098;
-  }
-  
-  .red-border {
-    border: 2px solid #9d102b;
-  }
-  
-  /* END OF ELEMENTS */
-  
-  .overflow {
+}
+.banner-content h3 {
+    font-size: 3rem;
+    margin: 5% 0;
+    color: #eeeeee;
+    font-weight: bold;
+}
+/*banner end*/
+/*header end*/
+
+/*about*/
+.about {
+    background: #eee;
+}
+.about-content {
+    margin-top: 7%;
+    font-family: "Lato", serif;
+}
+.about-content h2 {
+    margin: 5%;
+}
+.about-text {
+    font-size: 2rem;
+    line-height: 2;
+    margin: 5% 0 7%;
+}
+/*about end*/
+
+/*works*/
+.block {
+    box-shadow: 4px 4px 7px #333;
     overflow: hidden;
-  }
-  
-  .overlay {
-    background-color: rgba(4, 14, 22, 0.83);
-    height: 100%;
-    width: 100%;
-    padding-bottom: 80px;
-  }
-  
-  #home {
-    background: url("https://static.pexels.com/photos/232/apple-iphone-books-desk-large.jpg")
-      no-repeat;
-    width: 100%;
+    position: relative;
+    margin-bottom: 10%;
+}
+.works {
+    padding-bottom: 3%;
+    background: #fff;
+}
+.works-thumb {
+    height: 300px;
+}
+#work-1 {
+    background: url("http://i1378.photobucket.com/albums/ah89/andreykokhanevich/portfolio%20page/twitch_zpscblks89r.jpg") no-repeat 100%;
     background-size: cover;
-  }
-  
-  #home nav {
-    margin: 0 auto;
-    width: 700px;
-    padding-top: 80px;
-  }
-  
-  #home nav ul {
-    overflow: hidden;
-  }
-  
-  #home nav ul li {
-    width: 25%;
-  }
-  
-  #home nav a {
-    padding: 16px;
-    padding-right: 30px;
-    display: table-cell;
-  }
-  
-  #home nav.fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: black;
-    z-index: 999;
-    padding: 0;
-    transition: background-color 0.8s;
-  }
-  
-  #home nav.fixed ul {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  
-  #about::before {
-    height: 0px;
-    width: 0px;
-    border-left: 30px solid transparent;
-    border-right: 30px solid transparent;
-    border-top: 30px solid #131c23;
-    margin: 0 auto;
-    content: "";
-    display: block;
-  }
-  
-  .social-links {
-    margin-top: 100px;
-    overflow: hidden;
-    padding: 0;
-    display: table;
-    margin: 0 auto;
-    margin-top: 90px;
-  }
-  
-  .social-links li {
-    display: inline-table;
-    margin-right: 10px;
-  }
-  
-  .twitter {
-    border-color: #55acee;
-  }
-  
-  .linkedin {
-    border-color: #0077b5;
-  }
-  
-  .freecodecamp {
-    border-color: #4a2b0f;
-  }
-  
-  .twitter:hover {
-    background-color: #55acee;
-    transition: background-color 0.4s;
-  }
-  
-  .linkedin:hover {
-    background-color: #0077b5;
-    transition: background-color 0.4s;
-  }
-  
-  .freecodecamp:hover {
-    background-color: #4a2b0f;
-    transition: background-color 0.4s;
-  }
-  
-  #about .info {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  #about h2 {
-    color: #0d2435;
-  }
-  
-  #about h2::after {
-    border-bottom: 2px dashed #918d8d;
-  }
-  
-  #about .info p {
-    line-height: 270%;
-  }
-  
-  #about .signature {
-    font-family: "Brush Script MT", cursive;
-    font-size: 150%;
-    float: right;
-    color: #0d2435;
-    opacity: 0.9;
-  }
-  
-  #skill-set {
-    margin-top: 80px;
-    padding-bottom: 80px;
-  }
-  
-  #skill-set ul {
-    overflow: hidden;
-  }
-  
-  #web-development-skills {
-    background-color: #114190;
-  }
-  
-  #automation-skills {
-    background-color: #e11a61;
-  }
-  
-  #misc-skills {
-    background-color: #9d1098;
-  }
-  
-  .skills {
-    color: white;
-  }
-  
-  .skills li {
-    padding: 20px;
-  }
-  
-  #portfolio {
-    background-color: #423a3a;
-    padding-bottom: 80px;
-  }
-  
-  #portfolio h2 {
-    color: #f0f0f0;
-    margin-bottom: 140px;
-  }
-  
-  #portfolio h2:after {
-    border-bottom: 2px dashed #b4b4b4;
-  }
-  
-  #portfolio .row {
-    margin: 0px;
-    box-sizing: border-box;
-    padding: 0 60px;
-  }
-  
-  #portfolio .heading {
-    color: #f0f0f0;
-    padding: 15px;
-    text-align: center;
+}
+#work-2 {
+    background: url("http://i1378.photobucket.com/albums/ah89/andreykokhanevich/portfolio%20page/weather_zpso9kxmj13.jpg") no-repeat 100%;
+    background-size: cover;
+}
+#work-3 {
+    background: url("http://i1378.photobucket.com/albums/ah89/andreykokhanevich/portfolio%20page/tribute_zpsnwcehwkk.jpg") no-repeat 100%;
+    background-size: cover;
+}
+#work-4 {
+    background: url("http://i1378.photobucket.com/albums/ah89/andreykokhanevich/portfolio%20page/wikisearch_zps7uvspjn1.jpg") no-repeat 100%;
+    background-size: cover;
+}
+#work-5 {
+    background: url("http://i1378.photobucket.com/albums/ah89/andreykokhanevich/portfolio%20page/quote_zpsk9hgyziu.jpg") no-repeat 100%;
+    background-size: cover;
+}
+#work-6 {
+    background: url("http://i1378.photobucket.com/albums/ah89/andreykokhanevich/portfolio%20page/photoblog_zpsvvj8jgc2.jpg") no-repeat 100%;
+    background-size: cover;
+}
+.block::after, .block::before {
+    content: '';
+    background: rgba(0,0,0,0.6);
     position: absolute;
-    font-size: 18px;
-    letter-spacing: 2px;
-  }
-  
-  #portfolio .heading span {
-    color: #635757;
     display: block;
-    margin: 40px 0px;
-    font-size: 200%;
-  }
-  
-  #portfolio .description {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    padding: 15px;
-  }
-  
-  #portfolio .description > * {
-    display: none;
-    font-size: 72%;
-  }
-  
-  #portfolio p {
-    color: #f0f0f0;
-    /*display: none;*/
-    margin-bottom: 30px;
-    line-height: 230%;
-  }
-  
-  #portfolio p,
-  .tools {
-    width: 100%;
-  }
-  
-  .description span {
-    margin-left: 10px;
-  }
-  
-  .description .tools {
-    margin-top: 20px;
-    overflow: hidden;
-  }
-  
-  .description .tools li {
-    margin-top: 5px;
-    background-color: #114190;
-    margin-right: 10px;
-    padding: 10px;
-    color: #f0f0f0;
-  }
-  
-  #portfolio div section {
-    cursor: pointer;
-  }
-  
-  #portfolio div:nth-child(odd) section {
-    background-color: #483f3f;
-    padding: 10px;
-    border: 3px solid #4d4343;
-  }
-  
-  #portfolio div:nth-child(even) section {
-    background-color: #3d3636;
-    padding: 10px;
-    border: 3px solid #393333;
-  }
-  
-  #portfolio img {
-    width: 100%;
-  }
-  
-  #portfolio section {
-    height: 100%;
-    margin-bottom: 20px;
-  }
-  
-  #portfolio .overlay {
-    position: relative;
-    padding-bottom: 0px;
-    min-height: 550px;
-    overflow: auto;
-  }
-  
-  #portfolio .description h4 {
-    color: white;
-  }
-  
-  #portfolio .heading {
-    position: relative;
-    margin: 0 auto;
-  }
-  
-  #portfolio section {
     width: 50%;
-    float: left;
-  }
-  
-  #portfolio section:hover .overlay img {
-    opacity: 0;
-    transition: opacity 0.32s;
-  }
-  
-  #portfolio section:hover .description {
-    top: 140px;
-    transition: top 0.5s;
-  }
-  
-  #portfolio section:hover .overlay .heading span {
-    -webkit-transform: rotate(180deg);
-    position: relative;
-    top: -80px;
-    left: -30px;
-    color: rgba(4, 14, 22, 0.83);
-  }
-  
-  #portfolio section:hover .overlay .description > * {
-    display: block;
-  }
-  
-  #portfolio section:hover .overlay .heading {
+    height: 100%;
+    top: 0;
+    overflow: hidden;
+}
+.block::after {
+    left: -50%;
+    transition: 0.5s;
+}
+.block::before {
+    right: -50%;
+    transition: 0.5s;
+}
+.block:hover:after {
+    left: 0;
+}
+.block:hover:before {
+    right: 0;
+}
+.works-caption {
+    text-align: center;
+    font-family: "Lato", serif;
+    font-size: 2rem;
+    letter-spacing: 0.4rem;
     position: absolute;
-    top: -60px;
-    transition: top 0.9s;
-  }
-  
-  #contact {
-    background: url("https://res.cloudinary.com/dj7k0lade/image/upload/v1526689027/codepen/portfolio/map.jpg")
-      no-repeat;
-    background-size: cover;
-  }
-  
-  #contact .overlay {
-    background: rgba(0, 0, 0, 0.968);
-  }
-  
-  #contact h2 {
-    color: white;
-  }
-  
-  #contact h2:after {
-    border-bottom: 2px dashed white;
-  }
-  
-  #contact form {
-    position: relative;
-  }
-  
-  #contact .form-group label {
+    border-radius: 10px;
     display: block;
-    color: white;
-    font-weight: normal;
-  }
-  
-  #contact .form-group input,
-  #contact .form-group textarea {
-    outline: none;
-    border: 0;
-    border-bottom: 6px solid #114190;
-    padding: 9px;
-    background-color: #2b2b2b;
-    color: white;
-  }
-  
-  #contact .form-group input#emailTXT {
-    width: 75%;
-    border-bottom: 6px solid #e11a61;
-  }
-  
-  #contact .form-group input#emailTXT {
-    border-bottom: 6px solid #e11a61;
-  }
-  
-  #contact .form-group input#subjectTXT {
-    width: 55%;
-    border-bottom: 6px solid #9d1098;
-  }
-  
-  #contact .form-group input#messageTXT {
-    border-bottom: 6px solid #9d1098;
-  }
-  
-  #contact .form-group #messageTXT {
-    border-bottom: 6px solid #9d102b;
-    resize: none;
-  }
-  
-  #contact #submitBTN {
-    color: white;
-  }
-  
-  #contact #submitBTN:hover {
-    background-color: white;
-    color: black;
-    transition: background-color 0.4s;
-  }
-  
-  #contact #submitBTN span {
-    margin-right: 20px;
-  }
-  
-  #contact .social-links li {
-    margin-bottom: 20px;
-  }
-  
-  /* Media Queries */
-  
-  @media screen and (max-width: 1200px) {
-    #portfolio [class^="col"] section {
-      width: 80%;
-      margin-right: auto;
-      margin-left: auto;
-      margin-bottom: 10px;
-      min-height: 400px;
+    padding: 15px 2px;
+    width: 60%;
+    left: 20%;
+    top:-40%;
+    z-index: 1;
+    color: #fff;
+    border: 2px solid #fff;
+    transition: top 0.5s;
+}
+.block:hover .works-caption {
+    top: 33%;
+}
+.works h2 {
+    margin: 7% 0;
+}
+/*works end*/
+
+/*skillls*/
+.skills {
+    background: #333;
+    text-align: center;
+}
+.skills h2 {
+    margin: 7%;
+    color: #fff;
+}
+.skills .skills-thumb {
+   margin-bottom: 5%;
+}
+/*skills end*/
+
+/*social list main*/
+.social-footer {
+    background: #fff;
+}
+.social-footer h2 {
+    margin: 5% 0 3%;
+}
+.social-footer .social-list {
+    display: inline-block;
+    padding: 0;
+    margin-bottom: 5%;
+}
+.social-footer .social-list li a{
+    display: block;
+    position: relative;
+    border: 2px solid #444;
+    transform: rotate(45deg);
+    width: 60px;
+    height: 60px;
+}
+.social-footer .social-list li {
+    display: inline-block;
+    list-style: none;
+    margin-left: 15px;
+}
+.social-footer .social-list li a i {
+    margin-top: 5px;
+    color: #444
+}
+.social-footer .social-list li:hover i {
+    color: #ffb424;
+}
+.social-footer .social-list .fa-facebook {
+    padding: 2px 0 0 0;
+}
+
+/*footer*/
+footer {
+    background: url("http://i1378.photobucket.com/albums/ah89/andreykokhanevich/portfolio%20page/footer-bg_zps1imhqalh.jpg");
+    -webkit-background-size: cover;
+    background-size: cover;
+    color: #fff;
+}
+footer h2 {
+    margin-top: 7%;
+}
+.contact { 
+    margin: 5% 0;
+}
+.contacts-data {
+    margin: 3% 7%;
+}
+.contacts-data .btn {
+    background: transparent;
+    padding: 15px 20px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-top: 7%;
+}
+.contacts-data .btn:hover {
+    background: #ffb424;
+    color: #fff;
+}
+.contact .button-icon {
+    padding-left: 10px;
+}
+.contact-text {
+    font-family: "Lato", serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.33rem;
+    padding-left: 7%;
+}
+/*footer end*/
+
+/* media queries */
+@media screen and (min-width: 991px) {
+    header .banner {
+        background-position: center;
     }
-  
-    #portfolio .overlay {
-      width: 100%;
-      height: auto;
+}
+@media screen and (max-width: 990px) {
+    header .banner-content {
+        text-align: center;
     }
-  
-    #portfolio img {
-      width: 100%;
-      height: auto;
+    .scroll-down {
+        display: none;
     }
-  
-    #portfolio section:hover .overlay .heading span {
-      -webkit-transform: rotate(90deg);
-      top: 70px;
-      left: -240px;
-      position: relative;
+    .contacts-data {
+        text-align: center;
     }
-  }
-  
-  @media screen and (max-width: 790px) {
-    body {
-      font-size: 18px;
-      text-align: center;
+}
+@media screen and (max-width: 767px) {
+    header .banner-content h1 {
+        font-size: 4rem;
     }
-  
-    h2 {
-      margin-top: 80px;
+    header .banner-content h3 {
+        font-size: 2.5rem;
     }
-  
-    input {
-      text-align: center;
+    header .social-list {
+        display: none;
     }
-  
-    #about img {
-      display: block;
-      margin: 0 auto;
-      width: 30%;
+    .block {
+        width: 65%;
+        margin: 20px auto;
     }
-  
-    #about .info {
-      flex-direction: column-reverse;
+    .skills img {
+        width: 65%;
     }
-  
-    #skill-set .skills {
-      margin-top: 20px;
+}
+@media screen and (max-width: 491px) {
+    header .banner-content h1 {
+        font-size: 2.5rem;
     }
-  
-    form {
-      text-align: left;
+    header .banner-content h3 {
+        font-size: 1.5rem;
     }
-  
-    #portfolio .description p {
-      margin-top: 40px;
-    }
-  
-    #portfolio section {
-      font-size: 10px;
-    }
-  
-    #portfolio .overlay > * {
-      font-size: 200%;
-    }
-  
-    #portfolio p,
-    h6 {
-      text-align: left;
-    }
-  
-    #contact textarea {
-      width: 90%;
-    }
-  }
-  
-  @media screen and (max-width: 570px) {
-    #home nav {
-      width: inherit;
-    }
-  
-    #about .signature {
-      float: none;
-    }
-  
-    #portfolio h2 {
-      margin-bottom: 0;
-    }
-  
-    #portfolio section img {
-      display: none;
-    }
-  
-    #portfolio section {
-      width: 100%;
-    }
-  
-    #portfolio .description > * {
-      display: block;
-    }
-  
-    #portfolio .description {
-      display: table-footer-group;
-    }
-  
-    #portfolio .heading {
-      display: table-header-group;
-      font-size: 180%;
-      text-align: left;
-    }
-  
-    #portfolio .overlay {
-      min-height: auto;
-      padding: 20px;
-    }
-  
-    #portfolio .description {
-      top: 100px;
-      position: static;
-    }
-  
-    #portfolio section {
-      min-height: auto;
-    }
-  
-    #portfolio section:hover .overlay .heading {
-      position: relative;
-      top: -0px;
-      color: white;
-      -webkit-transition: none;
-    }
-  
-    #portfolio .heading span {
-      display: none;
-    }
-  }
-  
-  @media screen and (max-width: 480px) {
-    .social-links li {
-      display: block;
-      width: 100%;
-    }
-  
-    .social-links {
-      width: 100%;
-    }
-  
-    h1 {
-      font-size: 300%;
-    }
-  
-    #about img {
-      width: 60%;
-    }
-  
-    #skill-set #web-development-skills::before {
-      display: none;
-    }
-  
-    #skill-set .skills {
-      width: 100%;
-      display: block;
-    }
-  
-    #portfolio .overlay {
-      height: 70%;
-    }
-  }
-  
+}
