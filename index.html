@@ -1,209 +1,105 @@
-"use strict"; // Paul Slaymaker, paul25882@gmail.com
-const body=document.getElementsByTagName("body").item(0);
-body.style.background="#000";
-
-const TP=2*Math.PI;
-const CSIZE=400;
-
-const ctx=(()=>{
-  let d=document.createElement("div");
-  d.style.textAlign="center";
-  body.append(d);
-  let c=document.createElement("canvas");
-  c.width=2*CSIZE;
-  c.height=2*CSIZE;
-  d.append(c);
-  return c.getContext("2d");
-})();
-ctx.translate(CSIZE,CSIZE);
-ctx.lineCap="round";
-
-onresize=()=>{ 
-  let D=Math.min(window.innerWidth,window.innerHeight)-40; 
-  ctx.canvas.style.width=D+"px";
-  ctx.canvas.style.height=D+"px";
-}
-
-const getRandomInt=(min,max,low)=>{
-  if (low) return Math.floor(Math.random()*Math.random()*(max-min))+min;
-  else return Math.floor(Math.random()*(max-min))+min;
-}
-
-var Circle=function(x,y,xp,yp,radius,pc) {
-  this.x=x;
-  this.y=y;
-  this.xp=xp;
-  this.yp=yp;
-  this.radius=radius;
-  this.pc=pc;
-  this.c=[];
-  this.drawCircle=(rf)=>{
-    ctx.beginPath();
-      ctx.moveTo(this.x+this.radius*rf,this.y);
-      ctx.arc(this.x,this.y,this.radius*rf,0,TP);
-ctx.fillStyle="hsl("+(hue+5*this.radius)+",90%,50%)";
-    ctx.fill();
-  }
-}
-
-var Curve=function() {
-  this.car=[];
-  this.to=-getRandomInt(0,400);
-  this.addCurveCircle=(cir)=>{
-    if (cir.pc) {
-      this.car.unshift(cir.pc);
-      this.addCurveCircle(cir.pc);
-    } else {
-      return;
-    }
-  }
-  this.setPath=()=>{
-    this.len=0;
-    this.path=new Path2D();
-    this.path.moveTo(0,0);
-    this.path.lineTo(this.car[1].xp,this.car[1].yp);
-    this.len+=this.car[0].radius;
-    for (let i=1; i<this.car.length-1; i++) {
-      this.path.bezierCurveTo(this.car[i].x,this.car[i].y,
-                              this.car[i].x,this.car[i].y,
-                              this.car[i+1].xp,this.car[i+1].yp);
-      this.len+=2*this.car[i].radius;
-    }
-    this.path.lineTo(this.car[this.car.length-1].x,this.car[this.car.length-1].y);
-    this.len+=this.car[this.car.length-1].radius;
-  }
-  this.drawCurve=()=>{
-    let tt=this.to+t;
-    ctx.setLineDash([Math.max(1,tt),4000]);
-    ctx.stroke(this.path);
-    if (tt>this.len+40) {
-      this.car[this.car.length-1].drawCircle(0.8);
-      if (tt>this.len+120) return false;
-      else return true;
-    } else if (tt>this.len) {
-      let raf=0.8*(tt-this.len)/40;
-      this.car[this.car.length-1].drawCircle(raf);
-      return true;
-    } else {
-      return true;
-    }
-  }
-}
-
-var drawPoint=(x,y,col)=>{	// diag
-  ctx.beginPath();
-  ctx.arc(x,y,5,0,TP);
-  ctx.closePath();
-  if (col) ctx.fillStyle=col;
-  else ctx.fillStyle="red";
-  ctx.fill();
-}
-
-var cval=(x,y,rad)=>{
-  if (Math.pow(x*x+y*y,0.5)>CSIZE-rad) return false;
-  for (let i=0; i<ca.length; i++) {
-    let rt=rad+ca[i].radius;
-    let xd=ca[i].x-x;
-    let yd=ca[i].y-y;
-    if (Math.abs(xd)>rt) continue;
-    if (Math.abs(yd)>rt) continue;
-    if (Math.pow(xd*xd+yd*yd,0.5)+1<rt) {
-      return false;
-    }
-  }
-  return true;
-}
-
-var eg=Math.random()<0.3;
-
-var grow=(rad)=>{
-  let c=eg
-        ?ca[ca.length-1-getRandomInt(0,ca.length,true)]
-        :ca[getRandomInt(0,ca.length)];
-  let a=TP*Math.random();
-  let x=c.x+(c.radius+rad)*Math.cos(a);
-  let y=c.y+(c.radius+rad)*Math.sin(a);
-  if (cval(x,y,rad)) {
-    let xp=c.x+c.radius*Math.cos(a);
-    let yp=c.y+c.radius*Math.sin(a);
-    let circle=new Circle(x,y,xp,yp,rad,c);
-    c.c.push(circle);
-    ca.push(circle);
-    return true;
-  }
-  return false;
-}
-
-ctx.fillStyle="green";
-ctx.lineWidth=5;
-
-var draw=()=>{
-  ctx.clearRect(-CSIZE,-CSIZE,2*CSIZE,2*CSIZE);
-  let grown=0;
-  for (let i=0; i<curves.length; i++) {
-    if (curves[i].drawCurve()) grown++;
-  }
-  drawPoint(0,0,"silver");
-  return grown;
-}
-
-var stopped=true;
-var start=()=>{
-  if (stopped) { 
-    stopped=false;
-    requestAnimationFrame(animate);
-  } else stopped=true;
-}
-body.addEventListener("click", start, false);
-
-var t=0;
-var inc=3;
-var animate=()=>{
-  if (stopped) return;
-  t+=inc;
-  if (!draw() || t<0) {
-    if (inc==3) inc=-8;
-    else { 
-      ctx.strokeStyle="hsla("+getRandomInt(0,360)+",90%,60%,0.6)";
-      inc=3; 
-      t=0; 
-      eg=Math.random()<0.3;
-      setCircles();
-    }
-  }
-  requestAnimationFrame(animate);
-}
-
-var hue=getRandomInt(0,360);
-var ca=[new Circle(0,0,0,0,50,0,0)];
-
-var curves=[];
-
-var setCircles=()=>{
-  ca=[new Circle(0,0,0,0,50,0,0)];
-  for (let i=0; i<2000; i++) {
-    let r=10;
-    if (i<20) r=42;
-    else if (i<100) r=34;
-    else if (i<300) r=26;
-    else if (i<1000) r=18;
-    grow(r);
-  }
-  curves=[];
-  for (let i=0; i<ca.length; i++) {
-    if (ca[i].c.length==0) {
-      var nc=new Curve();
-      nc.car=[ca[i]];
-      nc.addCurveCircle(ca[i]);
-      nc.setPath();
-      curves.push(nc)
-    }
-  }
-}
-
-onresize();
-
-setCircles();
-ctx.strokeStyle="hsla("+getRandomInt(0,360)+",90%,60%,0.6)";
-
-start();
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Portfollio</title>
+      
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+      </head>
+      
+      <body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+        <div class="container">
+          <div class="row">
+            <nav class="col-sm-3" id="myScrollspy">
+              <ul class="nav nav-pills nav-stacked">
+                <li><a href="#section1">About</a></li>
+                <li><a href="#section2">Projects</a></li>
+                <li><a href="#section3">Contact</a></li>
+              </ul>
+            </nav>
+      
+            <img class="image" width="300" height="300" src="https://avatars1.githubusercontent.com/u/22195445?v=3&u=74301cec3f0ebdcfe425a7d473778b351dd42216&s=400" />
+            <div class="col-sm-9">
+              <div id="section1">
+                <h1>Welcome to <strong><a href="http://www.redninja.net/" alt="_blank">RedNinja </strong></a>Studio</h1>
+                <p class="me">
+                  Hi, my name is James and I’m a Junior Developer. My aim is to create small projects to boost my profile that will hopefully lead to a full time development career. Here is a little about myself (a get to know me as such). I have always been interested
+                  in computers and all things tech/digital and over the last year or so I thought hey! If you enjoy it so much whats holding you back? So I took to the internet to find solutions to my problem, it looked like a long road ahead to achieve my
+                  personal goals but I am making progress. So far I have a solid grounding in HTML and CSS, a good understanding of Javascrip-jQuery and C#, with knowledge of Bootstrap – CMD – GIT/GITHUB. I still have a lot to learn as there’s SOOOOO many tools
+                  and extras but I’ll take it all head on, #MoreXp-LevelUp If you have any questions for me please feel free to get in contact via the contact section or social media links and I will be sure to get back soon as possible. Many Thanks. </p>
+                <div class="socialmedia">
+                  <a href="https://twitter.com/JamesAnthony117"><i class="fa fa-twitter"></i></a>
+                  <a href="http://stackoverflow.com/users/story/7021260"><i class="fa fa-stack-overflow"></i></a>
+                  <a href="https://www.instagram.com/jamesbredbin/?hl=en"><i class="fa fa-instagram"></i></a>
+                  <a href="https://github.com/Redninja1"><i class="fa fa-github"></i></a>
+                </div>
+              </div>
+              <div class="col-sm-9">
+                <div id="section2">
+                  <h2>Projects</h2>
+                  <h3>These are some projects that I have worked on, they are all links feel free to check them out</h3>
+                  <div class="tripple">
+                    <div class="boximg">
+                      <a href="http://mytemplatesite.22web.org/index.html" target="_blank"><img src="http://musiccitiessummit.com/wp-content/uploads/chicago-1.jpg" />
+                        <p>This is a demo website for promotional purposes. Everything was hard coded using the bootstrap framework.</p>
+                      </a>
+                    </div>
+      
+                    <div class="boximg">
+                      <a href="http://summerhouse.solutions/" target="_blank">
+                        <img src="https://s-media-cache-ak0.pinimg.com/originals/d6/79/df/d679df2fb8cc3f3d9b437a6cf0f348fb.jpg" />
+                        <p>Created a site for a local business using the bootstrap framework.</p>
+                      </a>
+                    </div>
+      
+                  </div>
+      
+      
+                  <div class="tripple">
+                    <div class="boximg">
+                      <a href="http://js-demo-slide.22web.org/?i=1" target="_blank">
+                        <img src="https://www.preempt.com/wp-content/uploads/demo-placeholder.png" />
+                        <p>This is an example JS slider that can be applied to sites.</p>
+                      </a>
+                    </div>
+      
+                    <div class="boximg">
+                      <a href="https://www.bespokefencing.com/" target="_blank">
+                        <img src="https://static.wixstatic.com/media/e65292_01cd6372c2fc4e33bcc21e94b6075ae3~mv2_d_1536_2048_s_2.jpg/v1/fill/w_958,h_309,al_c,q_80,usm_0.66_1.00_0.01/e65292_01cd6372c2fc4e33bcc21e94b6075ae3~mv2_d_1536_2048_s_2.webp" />
+                        <p>This is a website designed for a local fencer, The man does top grade work and wanted an easier way for his clients to view his work and book online for consolations if needed. (Check it out he does some great stuff!)</p>
+                      </a>
+                    </div>
+                  </div>
+      
+                  <div class="tripple">
+                    <div class="boximg">
+                      <a href="http://btownhalogroup.is-great.net/?i=1" target="_blank">
+                        <img src="https://content.halocdn.com/media/Default/home/misc-assets/canonfodder-5-6-16-4cdc32945480497aae1f3cf3c52a491b-1c5a254b31964b558621f8f3ba04cac8.jpg" />
+                        <p>This is a small website I created from the ground up in notepad++ they wanted somewhere to display there memory’s of a long forgot time (The days of Halo:Reach)</p>
+                      </a>
+                    </div>
+                    <!--
+      <div class="boximg">
+      <img src="http://netdna.coolthings.com/wp-content/uploads/2014/09/stacked-hong-kong-peter-stewart-1.jpg" />
+      <p>Lorem ipsum dolor sit amet</p>
+      </div>
+      
+      
+      <div class="boximg">
+      <img src="https://templated.co/items/demos/visualize/images/thumbs/02.jpg" />
+      <p>Lorem ipsum dolor sit amet</p>
+      </div>
+      -->
+                  </div>
+                </div>
+                <hr />
+                <div class="col-sm-9">
+                  <div id="section3">
+                    <p class="footer" align="center">© RedNinja. All rights reserved. Design: SIIT. Demo Images: Google.</p>
+                    <p>If you would like to get in contact please feel free to visit my social media links or contact direct on <a href="http://www.redninja.net/?page_id=6"><strong>RedNinja Studio</strong></a></p>
+                  </div>
+                </div>
+              </div>
+      </body>
+      
+      </html>
