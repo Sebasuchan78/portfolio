@@ -2,105 +2,158 @@
   <html lang="fr">
     <head>
         <title>Portfollio</title>
-      
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
         <link rel="stylesheet" href="style.css">
+        <script>
+            $(function() {
+                $('.right-sidebar .list-group').on('click', 'a.list-group-item', function(){
+                  $('.right-sidebar .list-group a.list-group-item').removeClass('active');
+                  $(this).addClass('active');
+                });
+              });
+        </script>
       </head>
       
-      <body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
-        <div class="container">
-          <div class="row">
-            <nav class="col-sm-3" id="myScrollspy">
-              <ul class="nav nav-pills nav-stacked">
-                <li><a href="#section1">About</a></li>
-                <li><a href="#section2">Projects</a></li>
-                <li><a href="#section3">Contact</a></li>
-              </ul>
-            </nav>
-      
-            <img class="image" width="300" height="300" src="https://avatars1.githubusercontent.com/u/22195445?v=3&u=74301cec3f0ebdcfe425a7d473778b351dd42216&s=400" />
-            <div class="col-sm-9">
-              <div id="section1">
-                <h1>Welcome to <strong><a href="http://www.redninja.net/" alt="_blank">RedNinja </strong></a>Studio</h1>
-                <p class="me">
-                  Hi, my name is James and I’m a Junior Developer. My aim is to create small projects to boost my profile that will hopefully lead to a full time development career. Here is a little about myself (a get to know me as such). I have always been interested
-                  in computers and all things tech/digital and over the last year or so I thought hey! If you enjoy it so much whats holding you back? So I took to the internet to find solutions to my problem, it looked like a long road ahead to achieve my
-                  personal goals but I am making progress. So far I have a solid grounding in HTML and CSS, a good understanding of Javascrip-jQuery and C#, with knowledge of Bootstrap – CMD – GIT/GITHUB. I still have a lot to learn as there’s SOOOOO many tools
-                  and extras but I’ll take it all head on, #MoreXp-LevelUp If you have any questions for me please feel free to get in contact via the contact section or social media links and I will be sure to get back soon as possible. Many Thanks. </p>
-                <div class="socialmedia">
-                  <a href="https://twitter.com/JamesAnthony117"><i class="fa fa-twitter"></i></a>
-                  <a href="http://stackoverflow.com/users/story/7021260"><i class="fa fa-stack-overflow"></i></a>
-                  <a href="https://www.instagram.com/jamesbredbin/?hl=en"><i class="fa fa-instagram"></i></a>
-                  <a href="https://github.com/Redninja1"><i class="fa fa-github"></i></a>
+      <body>
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-3 right-sidebar">
+                <div class="text-center">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1474593/profile/profile-512.jpg?1505328936" alt="Praful" class="img-circle img-responsive profile animate rollin">
+                  <h3>Praful Chandekar</h3>
+                </div>
+                <div class="row">
+                  <div class="list-group">
+                    <a href="#home" class="list-group-item active">My Home</a>
+                    <a href="#experience" class="list-group-item">My Expertise</a>
+                    <a href="#portfollio" class="list-group-item">My Portfolio</a>
+                    <a href="#contact" class="list-group-item">Contact Me</a>
+                  </div>
+                </div>
+                <div class="text-center footer-icons">
+                  <a href="https://www.freecodecamp.org/prafulc" target="_blank"><i class="fa fa-free-code-camp" aria-hidden="true"></i>
+          </a>
+                  <a href="https://codepen.io/prafulc" target="_blank"><i class="fa fa-codepen" aria-hidden="true"></i></a>
+                  <a href="https://github.com/prafulc" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
                 </div>
               </div>
-              <div class="col-sm-9">
-                <div id="section2">
-                  <h2>Projects</h2>
-                  <h3>These are some projects that I have worked on, they are all links feel free to check them out</h3>
-                  <div class="tripple">
-                    <div class="boximg">
-                      <a href="http://mytemplatesite.22web.org/index.html" target="_blank"><img src="http://musiccitiessummit.com/wp-content/uploads/chicago-1.jpg" />
-                        <p>This is a demo website for promotional purposes. Everything was hard coded using the bootstrap framework.</p>
-                      </a>
+              <div class="col-md-offset-3 col-md-9">
+                <div class="row page" id="home">
+                  <div class="col-md-12">
+                    <div class="content text-center">
+                      <h1>Welcome to My Website</h1>
+                      <div class="button-box">
+                        <button class="btn btn-lg btn-primary">
+                          <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+                          Scroll Down To Explore More</button>
+                      </div>
                     </div>
-      
-                    <div class="boximg">
-                      <a href="http://summerhouse.solutions/" target="_blank">
-                        <img src="https://s-media-cache-ak0.pinimg.com/originals/d6/79/df/d679df2fb8cc3f3d9b437a6cf0f348fb.jpg" />
-                        <p>Created a site for a local business using the bootstrap framework.</p>
-                      </a>
-                    </div>
-      
-                  </div>
-      
-      
-                  <div class="tripple">
-                    <div class="boximg">
-                      <a href="http://js-demo-slide.22web.org/?i=1" target="_blank">
-                        <img src="https://www.preempt.com/wp-content/uploads/demo-placeholder.png" />
-                        <p>This is an example JS slider that can be applied to sites.</p>
-                      </a>
-                    </div>
-      
-                    <div class="boximg">
-                      <a href="https://www.bespokefencing.com/" target="_blank">
-                        <img src="https://static.wixstatic.com/media/e65292_01cd6372c2fc4e33bcc21e94b6075ae3~mv2_d_1536_2048_s_2.jpg/v1/fill/w_958,h_309,al_c,q_80,usm_0.66_1.00_0.01/e65292_01cd6372c2fc4e33bcc21e94b6075ae3~mv2_d_1536_2048_s_2.webp" />
-                        <p>This is a website designed for a local fencer, The man does top grade work and wanted an easier way for his clients to view his work and book online for consolations if needed. (Check it out he does some great stuff!)</p>
-                      </a>
-                    </div>
-                  </div>
-      
-                  <div class="tripple">
-                    <div class="boximg">
-                      <a href="http://btownhalogroup.is-great.net/?i=1" target="_blank">
-                        <img src="https://content.halocdn.com/media/Default/home/misc-assets/canonfodder-5-6-16-4cdc32945480497aae1f3cf3c52a491b-1c5a254b31964b558621f8f3ba04cac8.jpg" />
-                        <p>This is a small website I created from the ground up in notepad++ they wanted somewhere to display there memory’s of a long forgot time (The days of Halo:Reach)</p>
-                      </a>
-                    </div>
-                    <!--
-      <div class="boximg">
-      <img src="http://netdna.coolthings.com/wp-content/uploads/2014/09/stacked-hong-kong-peter-stewart-1.jpg" />
-      <p>Lorem ipsum dolor sit amet</p>
-      </div>
-      
-      
-      <div class="boximg">
-      <img src="https://templated.co/items/demos/visualize/images/thumbs/02.jpg" />
-      <p>Lorem ipsum dolor sit amet</p>
-      </div>
-      -->
                   </div>
                 </div>
-                <hr />
-                <div class="col-sm-9">
-                  <div id="section3">
-                    <p class="footer" align="center">© RedNinja. All rights reserved. Design: SIIT. Demo Images: Google.</p>
-                    <p>If you would like to get in contact please feel free to visit my social media links or contact direct on <a href="http://www.redninja.net/?page_id=6"><strong>RedNinja Studio</strong></a></p>
+                <div class="row page" id="experience">
+                  <div class="col-md-12">
+                    <div class="content">
+                      <h1 class="title">My Expertise</h1>
+                      <div class="row showcase">
+                        <div class="col-md-4">
+                          <div class="thumbnail">
+                            <img src="http://vishnusoftech.com/wp-content/uploads/2016/04/html-css-3.jpg">
+                            <div class="caption">
+                              <h3>HTML + CSS</h3>
+                              <p class="text-justify">I have worked on various template designing projects. Created HTML5 and CSS3 templates with animation & canvas.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="thumbnail">
+                            <img src="http://vishnusoftech.com/wp-content/uploads/2016/04/html-css-3.jpg">
+                            <div class="caption">
+                              <h3>HTML + CSS</h3>
+                              <p class="text-justify">I have worked on various template designing projects. Created HTML5 and CSS3 templates with animation & canvas.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="thumbnail">
+                            <img src="http://vishnusoftech.com/wp-content/uploads/2016/04/html-css-3.jpg">
+                            <div class="caption">
+                              <h3>HTML + CSS</h3>
+                              <p class="text-justify">I have worked on various template designing projects. Created HTML5 and CSS3 templates with animation & canvas.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row page" id="portfollio">
+                  <div class="col-md-12">
+                    <div class="content">
+                      <h1 class="title">My Portfolio</h1>
+                      <div class="row showcase">
+                        <div class="col-md-3">
+                          <a href="https://codepen.io/prafulc/full/KXwMpo/" target="_blank" class="thumbnail">
+                            <img src="https://pbs.twimg.com/media/CVb-M26XAAATbAr.jpg" alt="APJ Abdul Kalam Tribute">
+                            <span class="caption">Tribute - APJ Abdul Kalam</span>
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="https://codepen.io/prafulc/full/KXwMpo/" target="_blank" class="thumbnail">
+                            <img src="https://pbs.twimg.com/media/CVb-M26XAAATbAr.jpg" alt="APJ Abdul Kalam Tribute">
+                            <span class="caption">Tribute - APJ Abdul Kalam</span>
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="https://codepen.io/prafulc/full/KXwMpo/" target="_blank" class="thumbnail">
+                            <img src="https://pbs.twimg.com/media/CVb-M26XAAATbAr.jpg" alt="APJ Abdul Kalam Tribute">
+                            <span class="caption">Tribute - APJ Abdul Kalam</span>
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="https://codepen.io/prafulc/full/KXwMpo/" target="_blank" class="thumbnail">
+                            <img src="https://pbs.twimg.com/media/CVb-M26XAAATbAr.jpg" alt="APJ Abdul Kalam Tribute">
+                            <span class="caption">Tribute - APJ Abdul Kalam</span>
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="https://codepen.io/prafulc/full/KXwMpo/" target="_blank" class="thumbnail">
+                            <img src="https://pbs.twimg.com/media/CVb-M26XAAATbAr.jpg" alt="APJ Abdul Kalam Tribute">
+                            <span class="caption">Tribute - APJ Abdul Kalam</span>
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="https://codepen.io/prafulc/full/KXwMpo/" target="_blank" class="thumbnail">
+                            <img src="https://pbs.twimg.com/media/CVb-M26XAAATbAr.jpg" alt="APJ Abdul Kalam Tribute">
+                            <span class="caption">Tribute - APJ Abdul Kalam</span>
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="https://codepen.io/prafulc/full/KXwMpo/" target="_blank" class="thumbnail">
+                            <img src="https://pbs.twimg.com/media/CVb-M26XAAATbAr.jpg" alt="APJ Abdul Kalam Tribute">
+                            <span class="caption">Tribute - APJ Abdul Kalam</span>
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="https://codepen.io/prafulc/full/KXwMpo/" target="_blank" class="thumbnail">
+                            <img src="https://pbs.twimg.com/media/CVb-M26XAAATbAr.jpg" alt="APJ Abdul Kalam Tribute">
+                            <span class="caption">Tribute - APJ Abdul Kalam</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row page" id="contact">
+                  <div class="content text-center">
+                    <h1>Feel Free To Contact On Social Links</h1>
+                    <a href="https://www.freecodecamp.org/prafulc" target="_blank" title="Free Code Camp"><i class="fa fa-free-code-camp" aria-hidden="true"></i>
+          </a>
+                  <a href="https://codepen.io/prafulc" target="_blank" title="Codepen"><i class="fa fa-codepen" aria-hidden="true"></i></a>
+                  <a href="https://github.com/prafulc" target="_blank" title="Github"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
       </body>
       
       </html>

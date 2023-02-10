@@ -1,148 +1,99 @@
 body {
-    background: url('https://www.asus.com/websites/global/products/KKuAp9d2jGnDWqzC/img/design-bg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    color: white;
+  }
+  .right-sidebar {
+    background-color: #C6D4FF;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    overflow-y: auto;
+  }
+  .right-sidebar h3 {
+    color: black;
+    padding-bottom: 10px;
+  }
+  img.profile {
+    width: 150px;
+    margin: 15px auto
+  }
+  .list-group .list-group-item {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .list-group .list-group-item.active {
+    background-color: #337ab7;
+    border-color: #337ab7;
+  }
+  .list-group a.list-group-item {
+    font-size: 1.3em;
     text-align: center;
-    color: #C7C7D0;
-    font-family: Source Sans Pro, sans-serif;
-    font-weight: 200;
-    padding-bottom: 50px;
   }
   
-  .image {
-    background-color: rgba(255, 255, 255, 0.075);
-    border-radius: 50%;
-    margin: 20px auto;
-    padding: 10px;
-    border: 1px solid #C7C7D0;
+  #home {
+    background: url('https://static1.squarespace.com/static/534eb383e4b013cdd4cd17a8/t/535af9f6e4b0a4907f93ffde/1424493422361/background-final_web.jpg?format=2500w') center/cover;
+  }
+  
+  .content {
     margin-top: 50px;
   }
   
-  h1 {
-    font-family: Source Sans Pro, sans-serif;
-    color: #C7C7D0;
-    font-weight: 200;
-    margin: 10px auto;
-    width: 70%;
-    line-height: 1.5;
-    text-shadow: 2px 2px 5px red;
-  }
-  
-  .socialmedia a {
-    background-color: rgba(255, 255, 255, 0.075);
-    text-decoration: none;
-    font-size: 16pt;
-    transition: .5s all;
-    color: #C7C7D0;
-    border: 1px solid #C7C7D0;
-    width: 50px;
-    height: 50px;
-    display: inline-block;
-    padding: 10px;
-    border-radius: 50%;
-  }
-  
-  .socialmedia a:hover,
-  strong {
-    color: #FFFFFF;
-    border-color: #FFF;
-    font-weight: 200;
-  }
-  
-  div.tripple {
-    width: 364px;
-    display: inline-block;
+  .content h1.title {
     text-align: center;
-    vertical-align: top;
+    text-shadow: 0px 3px 5px black;
+    margin: 20px auto 40px;
   }
   
-  .boximg {
-    color: #FFF;
-    background-color: rgba(255, 255, 255, 0.075);
-    width: 346px;
-    height: auto;
-    margin: 20px auto;
-    border: 1px solid #C7C7D0;
-    border-radius: 5px;
-    overflow: hidden;
-    transition: 0.5s all;
+  .content .showcase {
+    margin-bottom: 30px;
   }
   
-  .boximg img {
-    width: 346px;
-    height: auto;
+  #home h1 {
+    font-family: cursive;
+    font-weight: 900;
+    font-size: 3.5em;
+    text-shadow: 0 0 10px black;
   }
   
-  .boximg p {
-    min-height: 50px;
-    display: block;
-    padding-top: 20px;
-    text-align: center;
+  #home .button-box {
+    margin: 150px 50px;
   }
   
-  .me {
-    max-width: 600px;
-    display: inline-block;
-    text-align: center;
-    vertical-align: top;
-    font-weight: 200;
-    border: 1px solid white;
-    border-radius: 5px;
-    padding: 5px;
+  #experience {
+    background: #BD2C01;
   }
   
-  p {
-    font-size: 16px;
+  #portfollio {
+    background: #029D88;
   }
   
-  .boximg:hover {
-    box-shadow: 0 0 20px #333333;
-    border: 1px solid #FFF;
+  #contact {
+    background: #8600BD;
   }
   
-  .footer {
-    color: #FFFFFF;
-    font-size: 11pt;
+  #contact .content {
+    margin: 250px auto auto;
   }
   
-  hr {
-    width: 10%;
-    background-color: rgba(255, 255, 255, 0.075);
-    margin-top: 70px;
-    margin-bottom: 70px;
-  }
-  
-  a:link {
-    text-decoration: none;
+  #contact .content a {
+    font-size: 3em;
+    margin: 50px 25px auto;
     color: white;
+    text-decoration: none;
   }
   
-  a:hover {
-    text-decoration: underline;
-    color: red;
+  .page {
+    min-height: 100vh;
   }
   
-  a:visited {
-    color: white;
+  .footer-icons {
+    font-size: 2em;
   }
   
-  body {
-    position: relative;
+  .footer-icons a {
+    text-decoration: none;
+    margin: 2px 10px;
   }
   
-  ul.nav-pills {
-    top: 20px;
-    position: fixed;
-    color: red;
-  }
-  
-  li {
-    font-size: 20px;
-    text-shadow: 2px 2px 1px red;
-    box-shadow: 1px 1px 1px white;
-  }
-  
-  h2 {
-    text-shadow: 2px 2px 5px red;
+  .footer-icons a:hover {
+    color: black;
   }
